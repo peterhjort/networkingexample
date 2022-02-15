@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.players.observe(this) {
-            println("players changed")
+            println("players changed!!!")
             binding.textView.text = it.joinToString(", ")
         }
     }
