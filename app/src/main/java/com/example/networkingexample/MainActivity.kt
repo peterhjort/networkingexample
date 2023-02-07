@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.button.setOnClickListener {
             viewModel.readPlayers()
@@ -46,7 +47,6 @@ class MainActivityViewModel: ViewModel() {
             } catch (e: Exception) {
                 println("No luck in reading players from NW: ${e}")
             }
-
         }
     }
 }
